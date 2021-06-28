@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.view.WindowManager;
 
 import com.hersongomez.pelisinfo.R;
-import com.hersongomez.pelisinfo.mvp.Cartelera;
+import com.hersongomez.pelisinfo.mvp.view.Cartelera;
 
 public class MainActivity extends AppCompatActivity {
 
