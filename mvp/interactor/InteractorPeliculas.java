@@ -42,7 +42,8 @@ public class InteractorPeliculas implements InteractorPeliculasView {
                     return;
                 }
 
-                Peliculas peliculasData= response.body();
+                Peliculas peliculasData = response.body();
+                assert peliculasData != null;
                 ArrayList<PeliculasResults> peliculas = peliculasData.getResults();
 
                 if(peliculasData!=null){

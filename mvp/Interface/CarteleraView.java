@@ -8,6 +8,7 @@ public interface CarteleraView {
 
     void mostrarProgressBar();
     void ocultarProgressBar();
+    void mostrarRecyclerPeliculas();
     void buscarDetallePeliculas();
     void consultaFallida();
     void consultaExitosa(ArrayList<PeliculasResults> Peliculas);
