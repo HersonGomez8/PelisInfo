@@ -35,7 +35,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Pelicu
 
     @Override
     public void onBindViewHolder(@NonNull PeliculasViewHolder holder, int position) {
-       // holder.bind(position);
         holder.url="https://image.tmdb.org/t/p/w500/"+results.get(position).getPoster_path();
         Glide.with(context)
                 .load(holder.url)
@@ -59,10 +58,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Pelicu
             super(itemView);
 
             imageViewPeliculas = itemView.findViewById(R.id.ImageViewPeliculas);
-        }
-
-        void bind (int ListaIndex){
-            //imageViewPeliculas.setImageResource();
         }
     }
 }
