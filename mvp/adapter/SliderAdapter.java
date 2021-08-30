@@ -26,13 +26,13 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.Holder> {
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.slider_item,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.slider_item, null, false);
         return new Holder(view);
     }
 
     @Override
     public void onBindViewHolder(Holder viewHolder, int position) {
-        viewHolder.url="https://image.tmdb.org/t/p/w500/"+results.get(position).getBackdrop_path();
+        viewHolder.url = "https://image.tmdb.org/t/p/w500/" + results.get(position).getBackdrop_path();
         Glide.with(context)
                 .load(viewHolder.url)
                 .centerCrop()
@@ -46,11 +46,12 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.Holder> {
         return results.size();
     }
 
-    public class Holder extends SliderViewAdapter.ViewHolder{
+    public class Holder extends SliderViewAdapter.ViewHolder {
 
         public String url;
         ImageView imageView;
-        public Holder(View itemView){
+
+        public Holder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageViewSlider);
         }

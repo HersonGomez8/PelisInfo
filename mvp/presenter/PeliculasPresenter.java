@@ -34,4 +34,9 @@ public class PeliculasPresenter implements PresenterPeliculasView {
     public void consultaExitosa(ArrayList<PeliculasResults> peliculas) {
         carteleraView.consultaExitosa(peliculas);
     }
+
+    @Override
+    public void consultaPopulares(ArrayList<PeliculasResults> peliculas) {
+        carteleraView.consultaPopulares(peliculas);
+    }
 }

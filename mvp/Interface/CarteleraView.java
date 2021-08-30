@@ -14,4 +14,5 @@ public interface CarteleraView {
     void buscarDetallePeliculas();
     void consultaFallida();
     void consultaExitosa(ArrayList<PeliculasResults> peliculas);
+    void consultaPopulares(ArrayList<PeliculasResults> peliculas);
 }

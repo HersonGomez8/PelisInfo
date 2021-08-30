@@ -86,6 +86,11 @@ public class Cartelera extends AppCompatActivity implements CarteleraView{
         sliderView.setVisibility(View.VISIBLE);
         mRecyclerPopulares.setVisibility(View.VISIBLE);
         mostrarRecyclerPeliculas(peliculas,mRecyclerPopulares);
+
+    }
+
+    @Override
+    public void consultaPopulares(ArrayList<PeliculasResults> peliculas) {
         mostrarSliderPeliculas(peliculas);
     }
 

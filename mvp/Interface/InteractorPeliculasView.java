@@ -8,4 +8,5 @@ public interface InteractorPeliculasView {
     void buscarDetallePeliculas();
     void consultaFallida();
     void consultaExitosa(ArrayList<PeliculasResults> Peliculas);
+    void consultaPopulares(ArrayList<PeliculasResults> Peliculas);
 }

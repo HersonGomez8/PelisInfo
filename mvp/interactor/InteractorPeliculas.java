@@ -33,6 +33,7 @@ public class InteractorPeliculas implements InteractorPeliculasView {
                 .build();
         PeliculasApiService service = retrofit.create(PeliculasApiService.class);
         Call <Peliculas> call = service.consultarPeliculas();
+        Call <Peliculas> call2 = service.consultarPeliculasProximas();
 
         call.enqueue(new Callback<Peliculas>() {
             @Override
@@ -48,7 +49,30 @@ public class InteractorPeliculas implements InteractorPeliculasView {
 
                 if(peliculasData!=null){
                     consultaExitosa(peliculas);
-                    System.out.println("Mensaje --> Consulta correcta " +peliculasData);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Peliculas> call, Throwable t) {
+                consultaFallida();
+            }
+        });
+
+        call2.enqueue(new Callback<Peliculas>() {
+            @Override
+            public void onResponse(Call<Peliculas> call, Response<Peliculas> response) {
+                if(!response.isSuccessful()){
+                    System.out.println("Mensaje --> Consulta incorrecta");
+                    return;
+                }
+
+                Peliculas peliculasData = response.body();
+                assert peliculasData != null;
+                ArrayList<PeliculasResults> peliculasproximas = peliculasData.getResults();
+
+                if(peliculasData!=null){
+                    consultaPopulares(peliculasproximas);
+                    System.out.println("Mensaje --> Consulta Exitosa");
                 }
             }
 
@@ -67,5 +91,10 @@ public class InteractorPeliculas implements InteractorPeliculasView {
     @Override
     public void consultaExitosa(ArrayList<PeliculasResults> peliculas) {
         presenterPeliculasView.consultaExitosa(peliculas);
+    }
+
+    @Override
+    public void consultaPopulares(ArrayList<PeliculasResults> peliculas) {
+        presenterPeliculasView.consultaPopulares(peliculas);
     }
 }
